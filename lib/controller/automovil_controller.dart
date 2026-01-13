@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../model/automovil.dart';
 
 class AutomovilController extends ChangeNotifier {
-  final String _baseUrl = "http://10.40.6.234:9090/bbd_dto/api/automoviles";
+  final String _baseUrl = "http://10.40.6.234:9090/bdd_dto/api/automoviles";
 
   List<Automovil> automoviles = [];
   bool isLoading = false;

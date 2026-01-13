@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../model/seguro.dart';
 
 class SeguroController extends ChangeNotifier {
-  final String _baseUrl = "http://10.40.6.234:9090/bbd_dto/api/seguros";
+  final String _baseUrl = "http://10.40.6.234:9090/bdd_dto/api/seguros";
 
   Seguro? seguroActual;
   bool isLoading = false;

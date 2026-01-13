@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../model/poliza.dart';
 
 class PolizaController extends ChangeNotifier {
-  final String _baseUrl = "http://10.0.2.2:8080/api/poliza";
+  final String _baseUrl = "http://10.40.6.234:9090/bdd_dto/api/poliza";
 
   PolizaResponse? ultimaPoliza;
   bool isLoading = false;

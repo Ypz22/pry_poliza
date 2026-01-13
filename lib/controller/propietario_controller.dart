@@ -5,7 +5,7 @@ import '../model/propietario.dart';
 
 class PropietarioController extends ChangeNotifier {
   // Ajusta la URL según tu entorno (10.0.2.2 es el localhost para el emulador Android)
-  final String _baseUrl = "http://10.40.6.234:9090/bbd_dto/api/propietarios";
+  final String _baseUrl = "http://10.40.6.234:9090/bdd_dto/api/propietarios";
 
   List<Propietario> propietarios = [];
   bool isLoading = false;
