@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pry_poliza/view/poliza_page.dart';
-import 'package:pry_poliza/view/seguro_page.dart';
 import 'propietario_page.dart';
 import 'automovil_page.dart';
+import 'poliza_page.dart';
+import 'seguro_page.dart';
 import '../model/automovil.dart';
-
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -16,19 +15,12 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
 
-  // Lista de las 3 pestañas principales
   final List<Widget> _screens = [
-    const PropietarioListPage(), 
+    const PropietarioListPage(),
+    const CrearPolizaPage(),
     const CrearAutoPage(),
     DetalleSeguroPage(automovil: Automovil(modelo: '', valor: 0, accidentes: 0)),
-    const CrearPolizaPage()
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,26 +31,15 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        selectedItemColor: Theme.of(context).primaryColor, // Color primario de tu esquema
+        onTap: (index) => setState(() => _selectedIndex = index),
+        selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Propietarios',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Nueva Póliza',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.directions_car),
-            label: 'Mis Seguros',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.directions_car),
-            label: 'Mis Seguros',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Propietarios'),
+          BottomNavigationBarItem(icon: Icon(Icons.note_add), label: 'Nueva Póliza'),
+          BottomNavigationBarItem(icon: Icon(Icons.directions_car), label: 'Autos'),
+          BottomNavigationBarItem(icon: Icon(Icons.security), label: 'Seguros'),
         ],
       ),
     );

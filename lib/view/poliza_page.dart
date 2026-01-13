@@ -75,15 +75,35 @@ class _CrearPolizaPageState extends State<CrearPolizaPage> {
     }
   }
 
+  // ... dentro de _CrearPolizaPageState ...
   void _mostrarResultado(BuildContext context) {
-    final res = context.read<PolizaController>().ultimaPoliza!;
+    final res = context.read<PolizaController>().ultimaPoliza;
+    if (res == null) return;
+
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
         title: const Text("Póliza Generada"),
-        content: Text("Cliente: ${res.nombreCompleto}\nCosto Total: \$${res.costoTotal}"),
-        actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text("OK"))],
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Cliente: ${res.nombreCompleto}"),
+            Text("Modelo: ${res.modelo}"),
+            const Divider(),
+            Text(
+              "Costo Total: \$${res.costoTotal.toStringAsFixed(2)}",
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text("CERRAR")
+          )
+        ],
       ),
     );
   }
-}
+  }
