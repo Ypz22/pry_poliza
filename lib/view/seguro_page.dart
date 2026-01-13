@@ -28,6 +28,14 @@ class _DetalleSeguroPageState extends State<DetalleSeguroPage> {
   Widget build(BuildContext context) {
     final seguroVM = context.watch<SeguroController>();
 
+    if (widget.automovil.id == null) {
+      return const Scaffold(
+        body: Center(
+          child: Text("Seleccione un automóvil en la lista para ver su seguro."),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(title: const Text("Resumen de Póliza")),
       body: seguroVM.isLoading
