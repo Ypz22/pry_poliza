@@ -16,9 +16,11 @@ class _DetalleSeguroPageState extends State<DetalleSeguroPage> {
   @override
   void initState() {
     super.initState();
-    // Cargar el seguro al iniciar la pantalla
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<SeguroController>().fetchSeguroPorAutomovil(widget.automovil.id!);
+      final autoId = widget.automovil.id;
+      if (autoId != null) {
+        context.read<SeguroController>().fetchSeguroPorAutomovil(autoId);
+      }
     });
   }
 

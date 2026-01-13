@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => SeguroController(),
         ),
-        ChangeNotifierProvider(create: (_) => PolizaController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

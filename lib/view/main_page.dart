@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pry_poliza/view/poliza_page.dart';
 import 'package:pry_poliza/view/seguro_page.dart';
 import 'propietario_page.dart';
 import 'automovil_page.dart';
@@ -20,6 +21,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const PropietarioListPage(), 
     const CrearAutoPage(),
     DetalleSeguroPage(automovil: Automovil(modelo: '', valor: 0, accidentes: 0)),
+    const CrearPolizaPage()
   ];
 
   void _onItemTapped(int index) {
